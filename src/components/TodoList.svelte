@@ -73,7 +73,7 @@
   },0)
 </script>
 
-<section class="todo-list">
+<div class="todo-list">
   <ul on:dragover="{handleDragging}">
     {#each filteredTodos as todo (todo.id)}
       <li id={todo.id} class:dragging="{draggingId == todo.id}" class:not-dragging="{draggingId != todo.id}" draggable="true" on:dragstart="{_ => draggingId = todo.id}" on:dragend="{_ => draggingId = null}">
@@ -88,10 +88,10 @@
     <p>{leftCount} Items left</p>
     <button on:click="{_ => clearCompleted()}">Clear Completed</button>
   </div>
-</section>
+</div>
 
 <style lang="scss">
-  section.todo-list {
+  div.todo-list {
     margin: 1em auto;
     width: min(87.2vw, 540px);
     background-color: var(--theme-100);

@@ -6,7 +6,7 @@
 	import TodoInput from "./components/TodoInput.svelte";
 	import TodoList from "./components/TodoList.svelte";
 	import { theme } from "./stores/theme";
-import { todos } from "./stores/todos";
+	import { todos } from "./stores/todos";
 
 	let currentFilter: 'All' | 'Active' | 'Completed' = 'All';
 	let filterFunc: (todo: any) => boolean;

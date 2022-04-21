@@ -10,7 +10,7 @@
   $: currentFilter = filters[active]
 </script>
 
-<section class="todo-filter">
+<div class="todo-filter">
   <ul>
     {#each filters as filter,i (i)}
       <li class:active="{active == i}" on:click="{_ => active = i}">
@@ -18,10 +18,10 @@
       </li>
     {/each}
   </ul>
-</section>
+</div>
 
 <style lang="scss">
-  section.todo-filter {
+  div.todo-filter {
     width: min(87.2vw, 540px);
     min-height: 3em;
     margin: 0px auto;
@@ -55,7 +55,7 @@
   }
 
   @media (min-width: 720px) {
-    section.todo-filter {
+    div.todo-filter {
       position: absolute;
       bottom: -.25em;
       left: 50%;
