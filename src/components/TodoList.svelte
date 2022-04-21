@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { todos } from "../stores/todos";
 
-  function toggleCheck(id) {
+  function toggleCheck(id: number) {
     const newTodos = [...$todos]
     newTodos.forEach(todo => {
       if (id === todo.id) {
@@ -10,22 +10,39 @@
     })
     $todos = newTodos
   }
+
+  function deleteTodo(id: number) {
+    const newTodos = [...$todos]
+    $todos = newTodos.filter(todo => todo.id !== id)
+  }
+
+  function clearCompleted() {
+    const newTodos = [...$todos]
+    $todos = newTodos.filter(todo => !todo.checked)
+  }
+
+  $: leftCount = $todos.reduce((count, todo) => {
+    if (!todo.checked) {
+      return count + 1
+    }
+    return count
+  },0)
 </script>
 
 <section class="todo-list">
   <ul>
     {#each $todos as todo (todo.id)}
       <li draggable="true">
-        <span class="checkbox" class:checked='{todo.checked}' on:click="{toggleCheck(todo.id)}"></span>
+        <span class="checkbox" class:checked='{todo.checked}' on:click="{_ => toggleCheck(todo.id)}"></span>
         <span class="text" class:checked='{todo.checked}'>{todo.text}</span>
-        <svg class="close" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
+        <svg class="close" on:click="{_ => deleteTodo(todo.id)}" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
       </li>
     {/each}
   </ul>
 
   <div class="actions">
-    <p>5 Items left</p>
-    <button>Clear Completed</button>
+    <p>{leftCount} Items left</p>
+    <button on:click="{_ => clearCompleted()}">Clear Completed</button>
   </div>
 </section>
 
