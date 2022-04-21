@@ -1,10 +1,11 @@
 .checkbox {
-  background-color: rgb(228, 229, 241);
+  background-color: var(--theme-200);
   background-repeat: no-repeat;
   border-radius: 50%;
   width: 22px;
   height: 22px;
-  margin-left: 1.5em;
+
+  display: inline-block;
   position: relative;
   transition: background-color 400ms linear 0s;
 
@@ -16,11 +17,11 @@
     left: 0;
     background-image: 
       url("../images/icon-check.svg"),
-      linear-gradient(to right bottom, rgb(87, 221, 255), rgb(192, 88, 243));
+      var(--clr-primary-gradient)
   }
 
   &::before {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     background-position: left 50% top 50%;
     background-repeat: no-repeat;
     border-radius: 50%;

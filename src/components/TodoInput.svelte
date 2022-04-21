@@ -8,6 +8,7 @@
     width: min(87.2vw, 540px);
     min-height: 3em;
     margin: 1.5em auto 1em;
+    padding-left: 1.5em;
 
     display: flex;
     align-items: center;
