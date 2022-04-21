@@ -1,0 +1,27 @@
+@use "../abstracts" as *;
+
+:root {
+  @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+
+  @each $size, $value in $fonts {
+    --fn-#{$size}: #{$value};
+  }
+
+  @each $theme, $shades in $themes {
+    @each $shade, $value in $shades {
+      --#{$theme}-#{$shade}: #{$value};
+    }
+  }
+
+  @each $theme, $shades in $themes {
+    @if $theme == $current {
+      @each $shade, $value in $shades {
+        --theme-#{$shade}: #{$value};
+      }
+    }
+  }
+}
