@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onDestroy, onMount } from "svelte";
 
 	import Header from "./components/Header.svelte";
 	import TodoFilter from "./components/TodoFilter.svelte";
 	import TodoInput from "./components/TodoInput.svelte";
 	import TodoList from "./components/TodoList.svelte";
 	import { theme } from "./stores/theme";
+import { todos } from "./stores/todos";
 
 	let currentFilter: 'All' | 'Active' | 'Completed' = 'All';
 	let filterFunc: (todo: any) => boolean;
@@ -58,6 +59,11 @@
 		const body = document.getElementsByTagName('body')[0]
 		body.style.backgroundImage = `url('../images/bg-${layout}-${$theme}.jpg')`
 	}
+
+	// update localStorage
+	$: { localStorage.setItem('theme',$theme) }
+	$: { localStorage.setItem('todos',JSON.stringify($todos)) }
+
 </script>
 
 <Header/>
