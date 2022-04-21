@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from "svelte";
+
 	import Header from "./components/Header.svelte";
 	import TodoFilter from "./components/TodoFilter.svelte";
 	import TodoInput from "./components/TodoInput.svelte";
@@ -7,6 +9,26 @@
 
 	let currentFilter: 'All' | 'Active' | 'Completed' = 'All';
 	let filterFunc: (todo: any) => boolean;
+	let layout: 'mobile' | 'desktop' = 'mobile';
+
+	// media query to find-out the layout
+	onMount(() => {
+		let media = window.matchMedia('(min-width: 720px)')
+		let cb = () => {
+			if (media.matches) {
+				layout = 'desktop'
+			}else {
+				layout = 'mobile'
+			}
+		}
+		media.addEventListener('change', cb)
+
+		return () => {
+			media.removeEventListener('change', cb)
+		}
+	})
+
+	// changing the filter function
 	$: {
 		switch (currentFilter) {
 			case 'All':
@@ -21,13 +43,19 @@
 		}
 	}
 
+	// changing theme
 	$: {
 		if ($theme) {
-			const root = document.getElementsByTagName('html')[0]
+			const html = document.getElementsByTagName('html')[0]
 			for(let i = 100;i <= 600;i += 100) {
-				root.style.setProperty(`--theme-${i}`,`var(--${$theme}-${i})`)
+				html.style.setProperty(`--theme-${i}`,`var(--${$theme}-${i})`)
 			}
 		}
+	}
+
+	$: {
+		const body = document.getElementsByTagName('body')[0]
+		body.style.backgroundImage = `url('../images/bg-${layout}-${$theme}.jpg')`
 	}
 </script>
 
