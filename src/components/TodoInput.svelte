@@ -1,6 +1,25 @@
-<form class="todo-input">
+<script>
+  import { nextId, todos } from "../stores/todos";
+
+  let text = ''
+  function handleSubmit() {
+    if (text.length === 0) {
+      return
+    }
+    $todos = [{
+      id: $nextId,
+      text: text,
+      checked: false
+    },...$todos]
+    $nextId++
+
+    text = ''
+  }
+</script>
+
+<form class="todo-input" on:submit|preventDefault="{handleSubmit}">
   <span class="checkbox"></span>
-  <input type="text" placeholder="Create a new todo...">
+  <input type="text" bind:value="{text}" placeholder="Create a new todo...">
 </form>
 
 <style lang="scss">
