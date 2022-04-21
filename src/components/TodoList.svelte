@@ -1,24 +1,11 @@
 <script>
-  let todos = [
-    {
-      text: 'Complete online javascript course',
-      checked: false
-    },
-    {
-      text: 'Complete online javascript course',
-      checked: true
-    },
-    {
-      text: 'Complete online javascript course',
-      checked: false
-    },
-  ]
+  import { todos } from "../stores/todos";
 </script>
 
 <section class="todo-list">
   <ul>
-    {#each todos as todo}
-      <li>
+    {#each $todos as todo (todo.id)}
+      <li draggable="true">
         <span class="checkbox" class:checked='{todo.checked}'></span>
         <span class="text" class:checked='{todo.checked}'>{todo.text}</span>
         <svg class="close" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
@@ -49,7 +36,7 @@
   }
 
   li {
-    align-items: flex-start;
+    align-items: center;
     background-color: white;
     border-bottom: 1px solid var(--theme-200);
     display: flex;
@@ -76,7 +63,6 @@
       display: inline-block;
 
       color: var(--theme-500);
-      margin: 0.3125em 0px 0px;
       transition: color 400ms linear 0s;
       white-space: pre-wrap;
       width: 75%;
@@ -95,6 +81,10 @@
       top: calc(1.2em + 3px);
       transform: scale(0.8);
       transition: opacity 250ms ease-in-out 0s;
+    }
+
+    &:hover {
+      cursor: move;
     }
 
     &:hover > .close {
