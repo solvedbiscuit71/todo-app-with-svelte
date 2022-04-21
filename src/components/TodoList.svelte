@@ -120,6 +120,7 @@
 
       font-size: var(--fn-100);
       color: var(--theme-400);
+      transition: color 400ms linear 0s;
 
       &:hover {
         cursor: pointer;

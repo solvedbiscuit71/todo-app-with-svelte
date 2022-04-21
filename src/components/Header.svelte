@@ -41,10 +41,15 @@
       transition: opacity 400ms linear 0s;
       
       opacity: 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.show {
+        opacity: 1;
+      }
     }
 
-    svg.show {
-      opacity: 1;
-    }
   }
 </style>

@@ -50,6 +50,11 @@
     color: var(--theme-400);
     transition: color 400ms linear 0s;
 
+    &:hover {
+      cursor: pointer;
+      color: var(--theme-500);
+    }
+
     &.active {
       color: var(--clr-primary-blue);
     }
