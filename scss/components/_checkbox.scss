@@ -1,0 +1,40 @@
+.checkbox {
+  background-color: rgb(228, 229, 241);
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  margin-left: 1.5em;
+  position: relative;
+  transition: background-color 400ms linear 0s;
+
+  &.checked::before {
+    width: 22px;
+    min-height: 22px;
+
+    top: 0;
+    left: 0;
+    background-image: 
+      url("../images/icon-check.svg"),
+      linear-gradient(to right bottom, rgb(87, 221, 255), rgb(192, 88, 243));
+  }
+
+  &::before {
+    background-color: rgb(255, 255, 255);
+    background-position: left 50% top 50%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    content: "";
+    width: 19px;
+    min-height: 19px;
+    position: absolute;
+    top: 1.5px;
+    left: 1.5px;
+    transition: background-color 400ms linear 0s;
+  }
+
+  &:hover {
+    background-image: var(--clr-primary-gradient);
+    cursor: pointer;
+  }
+}

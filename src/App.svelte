@@ -20,4 +20,8 @@
 		background-repeat: no-repeat;
 		background-size: contain;
 	}
+
+	:global(html) {
+		font-family: "Josefin Sans";
+	}
 </style>
