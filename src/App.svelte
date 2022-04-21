@@ -5,6 +5,22 @@
 	import TodoList from "./components/TodoList.svelte";
 	import { theme } from "./stores/theme";
 
+	let currentFilter: 'All' | 'Active' | 'Completed' = 'All';
+	let filterFunc: (todo: any) => boolean;
+	$: {
+		switch (currentFilter) {
+			case 'All':
+				filterFunc = (todo: any) => true
+				break;
+			case 'Active':
+				filterFunc = (todo: any) => !todo.checked
+				break;
+			case 'Completed':
+				filterFunc = (todo: any) => todo.checked
+				break;
+		}
+	}
+
 	$: {
 		if ($theme) {
 			const root = document.getElementsByTagName('html')[0]
@@ -18,8 +34,8 @@
 <Header/>
 <main>
 	<TodoInput/>
-	<TodoList/>
-	<TodoFilter/>
+	<TodoList {filterFunc}/>
+	<TodoFilter bind:currentFilter={currentFilter}/>
 </main>
 <footer>Drag and drop to reorder list</footer>
 

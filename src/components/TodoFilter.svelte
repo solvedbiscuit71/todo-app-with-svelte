@@ -1,26 +1,20 @@
 <script>
-  let currentFilter = 0
+  let active = 0;
   let filters = [
-    {
-      name: 'All',
-      fn: (todo) => true
-    },
-    {
-      name: 'Active',
-      fn: (todo) => !todo.checked
-    },
-    {
-      name: 'Completed',
-      fn: (todo) => todo.checked
-    }
-  ]
+    'All',
+    'Active',
+    'Completed'
+  ];
+  export let currentFilter;
+
+  $: currentFilter = filters[active]
 </script>
 
 <section class="todo-filter">
   <ul>
-    {#each filters as filter,index (index)}
-      <li class:active="{currentFilter == index}" on:click="{() => {}}">
-        {filter.name}
+    {#each filters as filter,i (i)}
+      <li class:active="{active == i}" on:click="{_ => active = i}">
+        {filter}
       </li>
     {/each}
   </ul>

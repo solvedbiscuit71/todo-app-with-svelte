@@ -1,6 +1,9 @@
 <script lang="ts">
   import { todos } from "../stores/todos";
 
+  export let filterFunc: (todo: any) => boolean;
+  $: filteredTodos = $todos.filter(filterFunc)
+
   function toggleCheck(id: number) {
     const newTodos = [...$todos]
     newTodos.forEach(todo => {
@@ -31,7 +34,7 @@
 
 <section class="todo-list">
   <ul>
-    {#each $todos as todo (todo.id)}
+    {#each filteredTodos as todo (todo.id)}
       <li draggable="true">
         <span class="checkbox" class:checked='{todo.checked}' on:click="{_ => toggleCheck(todo.id)}"></span>
         <span class="text" class:checked='{todo.checked}'>{todo.text}</span>
