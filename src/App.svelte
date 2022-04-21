@@ -1,61 +1,17 @@
 <script lang="ts">
 	import Header from "./components/Header.svelte";
-
-	let theme: 'light'|'dark' = 'light';
+	import TodoFilter from "./components/TodoFilter.svelte";
+	import TodoInput from "./components/TodoInput.svelte";
+	import TodoList from "./components/TodoList.svelte";
 </script>
 
-<Header {theme}/>
+<Header/>
 <main>
-	<form class="todo-input">
-		<span class="checkbox"></span>
-		<input type="text" placeholder="Create a new todo...">
-	</form>
-
-	<section class="todo-list">
-		<ul>
-			<li>
-				<span class="checkbox"></span>
-				<span>Complete online JavaScript course</span>
-			</li>
-			<li>
-				<span class="checkbox"></span>
-				<span>Complete online JavaScript course</span>
-			</li>
-			<li>
-				<span class="checkbox"></span>
-				<span>Complete online JavaScript course</span>
-			</li>
-			<li>
-				<span class="checkbox"></span>
-				<span>Complete online JavaScript course</span>
-			</li>
-			<li>
-				<span class="checkbox"></span>
-				<span>Complete online JavaScript course</span>
-			</li>
-			<li>
-				<span class="checkbox"></span>
-				<span>Complete online JavaScript course</span>
-			</li>
-		</ul>
-
-		<div class="actions">
-			<p>5 Items left</p>
-			<button>Clear Completed</button>
-		</div>
-	</section>
-
-	<section class="todo-filter">
-		<ul>
-			<li>All</li>
-			<li>Active</li>
-			<li>Completed</li>
-		</ul>
-	</section>
+	<TodoInput/>
+	<TodoList/>
+	<TodoFilter/>
 </main>
-<footer>
-	Drag and drop to reorder list
-</footer>
+<footer>Drag and drop to reorder list</footer>
 
 <style lang="scss">
 	:global(body) {
