@@ -50,6 +50,11 @@
         opacity: 1;
       }
     }
+  }
 
+  @media (min-width: 720px) {
+    h1.title {
+      font-size: var(--fn-600);
+    }
   }
 </style>

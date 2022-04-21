@@ -57,4 +57,16 @@
       outline: none;
     }
   }
+
+  @media (min-width: 720px) {
+    form {
+      min-height: 4em;
+    }
+
+    input {
+      font-size: var(--fn-300);
+      margin-left: 1em;
+      width: 85%;
+    }
+  }
 </style>

@@ -21,6 +21,7 @@
 				layout = 'mobile'
 			}
 		}
+		cb();
 		media.addEventListener('change', cb)
 
 		return () => {
@@ -79,6 +80,10 @@
 
 	:global(html) {
 		font-family: "Josefin Sans";
+	}
+
+	main {
+		position: relative;
 	}
 
 	footer {

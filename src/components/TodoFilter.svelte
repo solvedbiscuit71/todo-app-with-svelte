@@ -53,4 +53,19 @@
       color: var(--clr-primary-blue);
     }
   }
+
+  @media (min-width: 720px) {
+    section.todo-filter {
+      position: absolute;
+      bottom: -.25em;
+      left: 50%;
+
+      transform: translate(-55%);
+      width: fit-content;
+
+      ul {
+        background: none;
+      }
+    }
+  }
 </style>

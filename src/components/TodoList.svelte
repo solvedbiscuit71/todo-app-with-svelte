@@ -147,4 +147,22 @@
       }
     }
   }
+
+  @media (min-width: 720px) {
+    li {
+      min-height: 4em;
+      padding: 1.35em 1.875em;
+      gap: 1.5em;
+
+      .text {
+        width: 85%;
+        font-size: var(--fn-300);
+      }
+    }
+
+    .actions {
+      min-height: 5em;
+      font-size: var(--fn-200);
+    }
+  }
 </style>
