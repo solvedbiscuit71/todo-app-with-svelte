@@ -4,6 +4,8 @@
   export let filterFunc: (todo: any) => boolean;
   $: filteredTodos = $todos.filter(filterFunc)
 
+  let draggingId: null | number = null;
+
   function toggleCheck(id: number) {
     const newTodos = [...$todos]
     newTodos.forEach(todo => {
@@ -24,6 +26,45 @@
     $todos = newTodos.filter(todo => !todo.checked)
   }
 
+  function handleDragging(event: DragEvent) {
+    const nearestId = findNearest(event.clientY);
+    const newTodos = $todos.filter(todo => todo.id !== draggingId)
+    const draggingObj = $todos.find(todo => todo.id === draggingId)
+
+    if (nearestId === undefined) {
+      $todos = [...newTodos, draggingObj]
+    }else {
+      let nearestIndex = -1;
+      newTodos.forEach((todo,index) => {
+        if (todo.id == nearestId) {
+          nearestIndex = index
+          return
+        }
+      })
+      $todos = [...newTodos.slice(0,nearestIndex),draggingObj,...newTodos.slice(nearestIndex)]
+    }
+  }
+
+  function findNearest(clientY: number) {
+    const noneDragging = [...document.getElementsByClassName('not-dragging')]
+    const nearestElement = noneDragging.reduce((nearest,current) => {
+      const rect = current.getBoundingClientRect()
+      const offset = rect.y + ( rect.height / 2 ) - clientY
+      if (offset > 0 && offset < nearest.offset) {
+        return {
+          offset: offset,
+          id: current.id
+        }
+      }
+      return nearest
+    },{
+      offset: Number.POSITIVE_INFINITY,
+      id: undefined
+    })
+    
+    return nearestElement.id;
+  }
+
   $: leftCount = $todos.reduce((count, todo) => {
     if (!todo.checked) {
       return count + 1
@@ -33,9 +74,9 @@
 </script>
 
 <section class="todo-list">
-  <ul>
+  <ul on:dragover="{handleDragging}">
     {#each filteredTodos as todo (todo.id)}
-      <li draggable="true">
+      <li id={todo.id} class:dragging="{draggingId == todo.id}" class:not-dragging="{draggingId != todo.id}" draggable="true" on:dragstart="{_ => draggingId = todo.id}" on:dragend="{_ => draggingId = null}">
         <span class="checkbox" class:checked='{todo.checked}' on:click="{_ => toggleCheck(todo.id)}"></span>
         <span class="text" class:checked='{todo.checked}'>{todo.text}</span>
         <svg class="close" on:click="{_ => deleteTodo(todo.id)}" xmlns="http://www.w3.org/2000/svg" width="18" height="18"><path fill="#494C6B" fill-rule="evenodd" d="M16.97 0l.708.707L9.546 8.84l8.132 8.132-.707.707-8.132-8.132-8.132 8.132L0 16.97l8.132-8.132L0 .707.707 0 8.84 8.132 16.971 0z"/></svg>
