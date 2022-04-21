@@ -1,35 +1,84 @@
-# Svelte template
+# Todo app
 
-This is my personal svelte template which supports the following features,
-- Sass
-- Typescript
+This is a solution to the [Todo app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/todo-app-Su1_KokOW).
 
-__NOTE__:  
-This template also use a `/scss` directory for global css which can be used as a design system.
+# The challenge
 
-# Installation
+In this app, The users can,
 
-```bash
-npx degit solvedbiscuit71/svelte-template <your-project-name>
-```
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Add new todos to the list
+- Mark todos as complete
+- Delete todos from the list
+- Filter by all/active/complete todos
+- Clear all completed todos
+- Toggle light and dark mode
+- **Bonus**: Drag and drop to reorder items on the list
 
-And move into that directory,
-```bash
-cd <your-project-name>
-```
+# Built with
 
-After cd into your project folder, install the dependencies
-```bash
-npm install
-```
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+- Mobile-first workflow
+- [Svelte](https://svelte.dev/) - JS library
+- [Sass](https://sass-lang.com/) - For styles
 
-Then, start the development server by
-```bash
-npm run dev
-```
+# Style guide
 
-## What does `npm run dev` do ?
+## Layout
 
-It run the `npm run watch:svelte` and `npm run watch:scss` in parallel for compiling both scss and svelte.
+The designs were created to the following widths:
 
-__Note__: The scss it watches belong to the `/scss` folder in the project directory.
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Bright Blue: hsl(220, 98%, 61%)
+- Check Background: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%)
+
+## Theme
+
+### Light Theme
+
+- Very Light Gray: hsl(0, 0%, 98%)
+- Very Light Grayish Blue: hsl(236, 33%, 92%)
+- Light Grayish Blue: hsl(233, 11%, 84%)
+- Dark Grayish Blue: hsl(236, 9%, 61%)
+- Very Dark Grayish Blue: hsl(235, 19%, 35%)
+
+### Dark Theme
+
+- Very Dark Blue: hsl(235, 21%, 11%)
+- Very Dark Desaturated Blue: hsl(235, 24%, 19%)
+- Light Grayish Blue: hsl(234, 39%, 85%)
+- Light Grayish Blue (hover): hsl(236, 33%, 92%)
+- Dark Grayish Blue: hsl(234, 11%, 52%)
+- Very Dark Grayish Blue: hsl(233, 14%, 35%)
+- Very Dark Grayish Blue: hsl(237, 14%, 26%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 18px
+
+### Font
+
+- Family: [Josefin Sans](https://fonts.google.com/specimen/Josefin+Sans)
+- Weights: 400, 700
+
+# Links
+
+- Solution URL: [link here](link)
+- Live Site URL: [link here](link)
+
+# Author
+
+- Github - [@solvedbiscuit71](https://github.com/solvedbiscuit71)
+- Frontend Mentor - [@solvedbiscuit71](https://www.frontendmentor.io/profile/solvedbiscuit71)
