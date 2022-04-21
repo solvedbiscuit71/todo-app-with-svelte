@@ -1,5 +1,5 @@
 .checkbox {
-  background-color: var(--theme-200);
+  background-color: var(--theme-300);
   background-repeat: no-repeat;
   border-radius: 50%;
   width: 22px;
@@ -21,7 +21,7 @@
   }
 
   &::before {
-    background-color: white;
+    background-color: var(--theme-100);
     background-position: left 50% top 50%;
     background-repeat: no-repeat;
     border-radius: 50%;

@@ -20,7 +20,7 @@
   @each $theme, $shades in $themes {
     @if $theme == $current {
       @each $shade, $value in $shades {
-        --theme-#{$shade}: #{$value};
+        --theme-#{$shade}: var(--#{$theme}-#{$shade});
       }
     }
   }

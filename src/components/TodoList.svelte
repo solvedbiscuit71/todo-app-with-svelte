@@ -23,9 +23,8 @@
   section.todo-list {
     margin: 1em auto;
     width: min(87.2vw, 540px);
-    background-color: white;
+    background-color: var(--theme-100);
     border-radius: 0.3125em;
-    box-shadow: rgba(194, 195, 214, 0.5) 0px 2em 3.125em -1em;
     transition: background-color 400ms linear 0s;
   }
 
@@ -37,8 +36,8 @@
 
   li {
     align-items: center;
-    background-color: white;
-    border-bottom: 1px solid var(--theme-200);
+    background-color: var(--theme-100);
+    border-bottom: 1px solid var(--theme-300);
     display: flex;
     font-size: 0.8rem;
     gap: 1em;
@@ -62,13 +61,13 @@
     .text {
       display: inline-block;
 
-      color: var(--theme-500);
+      color: var(--theme-600);
       transition: color 400ms linear 0s;
       white-space: pre-wrap;
       width: 75%;
 
       &.checked {
-        color: var(--theme-300);
+        color: var(--theme-500);
         text-decoration: line-through; 
       }
     }
@@ -95,7 +94,7 @@
 
   .actions {
     font-size: var(--fn-100);
-    color: var(--theme-400);
+    color: var(--theme-500);
 
     display: flex;
     align-items: center;
@@ -109,12 +108,12 @@
       background: none;
 
       font-size: var(--fn-100);
-      color: var(--theme-400);
+      color: var(--theme-500);
       transition: color 400ms linear 0s;
 
       &:hover {
         cursor: pointer;
-        color: var(--theme-500);
+        color: var(--theme-600);
       }
     }
   }

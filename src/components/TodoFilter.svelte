@@ -35,24 +35,24 @@
   }
 
   ul {
-    background-color: white;
+    background-color: var(--theme-100);
     border-radius: 0.3125em;
-    box-shadow: rgba(194, 195, 214, 0.5) 0px 2em 3.125em -1em;
     min-height: 3em;
     display: flex;
     gap: 1.25em;
     align-items: center;
     justify-content: center;
     list-style: none;
+    transition: background-color 400ms linear 0s;
   }
 
   li {
-    color: var(--theme-400);
+    color: var(--theme-500);
     transition: color 400ms linear 0s;
 
     &:hover {
       cursor: pointer;
-      color: var(--theme-500);
+      color: var(--theme-600);
     }
 
     &.active {

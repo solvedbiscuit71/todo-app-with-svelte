@@ -14,16 +14,15 @@
     align-items: center;
 
     border-radius: 0.3125em;
-    box-shadow: rgba(194, 195, 214, 0.5) 0px 35px 50px -15px;
-    background-color: rgb(255, 255, 255);
+    background-color: var(--theme-100);
     transition: background-color 400ms linear 0s;
   }
 
   input {
-    background-color: white;
+    background-color: var(--theme-100);
     border: none;
     caret-color: var(--clr-primary-blue);
-    color: var(--theme-500);
+    color: var(--theme-600);
     width: 75%; 
     min-height: 3em;
     margin-left: calc(2.5em - 22px);
