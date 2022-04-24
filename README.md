@@ -75,8 +75,8 @@ The designs were created to the following widths:
 
 # Links
 
-- Solution URL: [link here](link)
-- Live Site URL: [link here](link)
+- Solution URL: [link here](https://www.frontendmentor.io/solutions/todo-app-with-svelte-and-sass-HkJNIgJr5)
+- Live Site URL: [link here](https://todo-app-with-svelte.vercel.app/)
 
 # Author
 
